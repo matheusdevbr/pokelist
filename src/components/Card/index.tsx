@@ -1,8 +1,16 @@
 import pokeBg from '../../images/pokeBg.png';
 import pokeball from '../../images/pokeball.png';
 import { Container } from './style';
+import { useEffect } from 'react';
+
+import { api } from '../../services/api';
 
 export const Card = () => {
+
+  useEffect(() => {
+    api.get(`pokemon`).then(response => console.log(response))
+  })
+
   return (
     <Container>
       <div className="card">  
