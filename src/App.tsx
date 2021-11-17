@@ -1,11 +1,11 @@
-import { Card } from "./components/Card";
+import { PokeList } from "./components/PokeList";
 import { GlobalStyles } from "./styles/global";
 
 
 export function App() {
   return (
     <>
-      <Card />
+      <PokeList />
       <GlobalStyles />
     </>
   );
