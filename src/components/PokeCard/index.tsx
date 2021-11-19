@@ -5,21 +5,35 @@ import { Container } from "./styles"
 import { useEffect, useState } from 'react';
 import { api } from '../../services/api';
 
+interface PokemonTypesProps {
+  name: string;
+}
 
+interface PokemonProps {
+  id: number;
+  image: string;
+  types: PokemonTypesProps[];
+}
 
 export const PokeCard = ({ name }: any) => {
+  const [pokemon, setPokemon] = useState<PokemonProps>({} as PokemonProps);
   
-console.log(name)
-  
+  useEffect(() => {
+    api.get(`pokemon/${name}`)
+    .then(response => 
+    setPokemon(response.data) 
+  )}, [name]);
+  console.log(pokemon.types)
+
   return(
     <Container>
     <div className="cardInfo">
-      <span>#Id</span>
+      <span>#{pokemon.id}</span>
       <h1>{name}</h1>
-      <p>Grass</p>
-      <p>Grass</p>
+
+
     </div>
-    <div className="cardImgs">
+      <div className="cardImgs">
         <img className="pokeBg" src={pokeBg} alt="" />
         <img className="pokeImg" src={pokeball} alt="" />
     </div>

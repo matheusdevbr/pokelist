@@ -4,13 +4,13 @@ import { useEffect, useState } from 'react';
 import { api } from '../../services/api';
 import { PokeCard } from '../PokeCard';
 
-interface PokemonProps {
-  id: string;
+interface PokemonsProps {
+  
   name: string;
 }
 
 export const PokeList = () => {
-  const [pokemons, setPokemons] = useState<PokemonProps[]>([]);
+  const [pokemons, setPokemons] = useState<PokemonsProps[]>([]);
 
     useEffect(() => {
     api.get('/pokemon')
@@ -21,7 +21,7 @@ export const PokeList = () => {
   return (
     <Container>
       {pokemons.map(pokemon => (
-          <PokeCard key={pokemon.name} name={pokemon.name} />
+          <PokeCard key={pokemon.name} name={pokemon.name}/>
         ))}
     </Container>
     
