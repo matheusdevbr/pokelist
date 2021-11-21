@@ -5,7 +5,6 @@ import { api } from '../../services/api';
 import { PokeCard } from '../PokeCard';
 
 interface PokemonsProps {
-  
   name: string;
 }
 
@@ -13,7 +12,7 @@ export const PokeList = () => {
   const [pokemons, setPokemons] = useState<PokemonsProps[]>([]);
 
     useEffect(() => {
-    api.get('/pokemon')
+    api.get('pokemon')
     .then(response =>
     setPokemons(response.data.results))
   }, []);
@@ -22,7 +21,7 @@ export const PokeList = () => {
     <Container>
       {pokemons.map(pokemon => (
           <PokeCard key={pokemon.name} name={pokemon.name}/>
-        ))}
+        ))} 
     </Container>
     
     

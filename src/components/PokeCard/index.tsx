@@ -12,7 +12,7 @@ interface PokemonTypesProps {
 interface PokemonProps {
   id: number;
   image: string;
-  types: PokemonTypesProps[];
+  // types: PokemonTypesProps[];
 }
 
 export const PokeCard = ({ name }: any) => {
@@ -20,22 +20,30 @@ export const PokeCard = ({ name }: any) => {
   
   useEffect(() => {
     api.get(`pokemon/${name}`)
-    .then(response => 
-    setPokemon(response.data) 
+    .then(response => {
+      const { id, types, sprites } = response.data;
+      setPokemon({
+        id,
+        image: sprites.other['official-artwork'].front_default,
+        // types: types.map()
+      })
+      
+    }
+    
+      
+     
   )}, [name]);
-  console.log(pokemon.types)
-
+  
   return(
     <Container>
     <div className="cardInfo">
       <span>#{pokemon.id}</span>
       <h1>{name}</h1>
 
-
     </div>
       <div className="cardImgs">
         <img className="pokeBg" src={pokeBg} alt="" />
-        <img className="pokeImg" src={pokeball} alt="" />
+        <img className="pokeImg" src={pokemon.image} alt="" />
     </div>
     </Container>
   )

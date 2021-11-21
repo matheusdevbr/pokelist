@@ -30,10 +30,10 @@ export const Container = styled.div`
   .pokeImg {
     position: relative;
     z-index: 50;
-    width: 120px;
-    height: 120px;
+    width: 140px;
+    height: 140px;
     margin-top: -10rem;
-    margin-left: 0.9rem;
+    margin-left: 0.4rem;
   }
 
 `
