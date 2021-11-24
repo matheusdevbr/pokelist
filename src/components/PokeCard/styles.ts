@@ -8,11 +8,14 @@ export const Container = styled.div`
   display: flex;
   justify-content: space-between;
 
+  cursor: pointer;
+
   background: #62B957;
   
  
   h1 {
-    min-width: 12.8rem;
+    text-transform: capitalize;
+    min-width: 12.5rem;
   }
 
   .cardImgs {
