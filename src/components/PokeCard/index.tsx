@@ -1,22 +1,27 @@
 import pokeBg from '../../images/pokeBg.png';
 
 import { useEffect, useState } from 'react';
-import Modal from 'react-modal'
+
 import { api } from '../../services/api';
+import { PokeDetailsModal } from '../PokeDetailsModal';
 
 import { Container } from "./styles"
+
+interface PokemonsProps {
+  name: string;
+}
 interface PokemonTypesProps {
   name: string;
 }
 
-interface PokemonProps {
+interface PokemonInfoProps {
   id: number;
   image: string;
   types: PokemonTypesProps[];
 }
 
-export const PokeCard = ({ name }: any) => {
-  const [pokemon, setPokemon] = useState<PokemonProps>({} as PokemonProps);
+export function PokeCard({name}: PokemonsProps) {
+  const [pokemon, setPokemon] = useState<PokemonInfoProps>({} as PokemonInfoProps);
   const [isPokeDetailsModalOpen, setisPokeDetailsModalOpen] = useState(false);
 
   useEffect(() => {
@@ -46,25 +51,28 @@ export const PokeCard = ({ name }: any) => {
 
   return (
     <>
+    
       <Container onClick={handleOpenPokeDetailsModal}>
+
         <div className="cardInfo">
           <span>#{pokemon.id}</span>
           <h1>{name}</h1>
           <p>{pokemon.types}</p>
-
         </div>
+
         <div className="cardImgs">
           <img className="pokeBg" src={pokeBg} alt="" />
           <img className="pokeImg" src={pokemon.image} alt="" />
         </div>
+        
       </Container>
 
-      <Modal
+      <PokeDetailsModal 
+        name={name} 
         isOpen={isPokeDetailsModalOpen}
-        onRequestClose={handleClosePokeDetailsModal}
-      >
-        <h2>{name}</h2>
-      </Modal>
+        onRequestClose={handleClosePokeDetailsModal} 
+      />
+
     </>
   )
 }

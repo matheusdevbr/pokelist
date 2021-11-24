@@ -16,6 +16,7 @@ export const Container = styled.div`
   h1 {
     text-transform: capitalize;
     min-width: 12.5rem;
+    margin-bottom: 1.5rem;
   }
 
   .cardImgs {
