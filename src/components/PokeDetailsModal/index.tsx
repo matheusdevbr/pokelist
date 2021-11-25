@@ -1,3 +1,4 @@
+//import { useState } from 'react';
 import Modal from 'react-modal'
 
 interface PokeDetailsModalProps {
@@ -7,11 +8,15 @@ interface PokeDetailsModalProps {
 }
 
 export function PokeDetailsModal({name, isOpen, onRequestClose}: PokeDetailsModalProps) {
+  //const [pokemon, setPokemon] = useState();
+
+  
   return (
-    <Modal 
-      
+    <Modal   
       isOpen={isOpen}
       onRequestClose={onRequestClose}
+      overlayClassName="react-modal-overlay"
+      className="react-modal-content"
     >
       <h1>{name}</h1>
     </Modal>

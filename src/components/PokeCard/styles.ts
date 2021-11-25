@@ -32,7 +32,7 @@ export const Container = styled.div`
   }
 
   .pokeImg {
-    position: relative;
+    position: static;
     z-index: 50;
     width: 140px;
     height: 140px;
