@@ -34,6 +34,10 @@ export const GlobalStyles = createGlobalStyle`
     cursor: pointer;
   }
 
+  h2 {
+    text-transform: capitalize;
+  }
+
   [disabled] {
     opacity: 0.6;
     cursor: not-allowed;
@@ -56,9 +60,15 @@ export const GlobalStyles = createGlobalStyle`
   .react-modal-content {
     width: 100%;
     max-width: 60rem;
-    background: var(--background);
+
+    background: #a9a9a9;
+
     padding: 3rem;
+    position: relative;
     border-radius: 0.5rem;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
 
 `

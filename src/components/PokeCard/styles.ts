@@ -12,28 +12,22 @@ export const Container = styled.div`
 
   background: #62B957;
   
- 
-  h1 {
-    text-transform: capitalize;
+  h2 {
     min-width: 12.5rem;
     margin-bottom: 1.5rem;
   }
 
   .cardImgs {
     padding-left: 1rem;
-
   }
 
   .pokeBg {
     width: 150px;
     height: 150px;
     margin-bottom: -2.3rem;
-    
   }
 
-  .pokeImg {
-    position: static;
-    z-index: 50;
+  .pokeImg {  
     width: 140px;
     height: 140px;
     margin-top: -10rem;

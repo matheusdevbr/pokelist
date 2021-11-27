@@ -10,6 +10,7 @@ import { Container } from "./styles"
 interface PokemonsProps {
   name: string;
 }
+
 interface PokemonTypesProps {
   name: string;
 }
@@ -25,20 +26,20 @@ export function PokeCard({name}: PokemonsProps) {
   const [isPokeDetailsModalOpen, setisPokeDetailsModalOpen] = useState(false);
 
   useEffect(() => {
-    api.get(`pokemon/${name}`)
+    async function getApi() {
+    await api.get(`pokemon/${name}`)
       .then(response => {
         const { id, types, sprites } = response.data;
         setPokemon({
           id,
           image: sprites.other['official-artwork'].front_default,
           types: types.map((type: { type: any; }) => type.type.name).join(" - "),
+          
         })
-
       }
+    )}
 
-
-
-      )
+    getApi()
   }, [name]);
 
   function handleOpenPokeDetailsModal() {
@@ -48,7 +49,7 @@ export function PokeCard({name}: PokemonsProps) {
   function handleClosePokeDetailsModal() {
     setisPokeDetailsModalOpen(false)
   }
-
+ 
   return (
     <>
     
@@ -56,7 +57,7 @@ export function PokeCard({name}: PokemonsProps) {
 
         <div className="cardInfo">
           <span>#{pokemon.id}</span>
-          <h1>{name}</h1>
+          <h2>{name}</h2>
           <p>{pokemon.types}</p>
         </div>
 
@@ -69,6 +70,7 @@ export function PokeCard({name}: PokemonsProps) {
 
       <PokeDetailsModal 
         name={name} 
+        pokeImg={pokemon.image}
         isOpen={isPokeDetailsModalOpen}
         onRequestClose={handleClosePokeDetailsModal} 
       />
