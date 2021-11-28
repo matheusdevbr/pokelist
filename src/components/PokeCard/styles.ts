@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+
 export const Container = styled.div`
   width: 25rem;
   height: 12rem;
@@ -9,8 +10,13 @@ export const Container = styled.div`
   justify-content: space-between;
 
   cursor: pointer;
+  transition: filter 0.2s;
 
-  background: #62B957;
+  
+
+  &:hover {
+    filter: brightness(0.9);
+  }
   
   h2 {
     min-width: 12.5rem;

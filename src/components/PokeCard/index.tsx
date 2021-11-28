@@ -1,5 +1,6 @@
 import pokeBg from '../../images/pokeBg.png';
 
+//import { useColor } from 'color-thief-react';
 import { useEffect, useState } from 'react';
 
 import { api } from '../../services/api';
@@ -25,8 +26,9 @@ export function PokeCard({name}: PokemonsProps) {
   const [pokemon, setPokemon] = useState<PokemonInfoProps>({} as PokemonInfoProps);
   const [isPokeDetailsModalOpen, setisPokeDetailsModalOpen] = useState(false);
 
+
   useEffect(() => {
-    async function getApi() {
+    async function getPokeInfoApi() {
     await api.get(`pokemon/${name}`)
       .then(response => {
         const { id, types, sprites } = response.data;
@@ -39,7 +41,7 @@ export function PokeCard({name}: PokemonsProps) {
       }
     )}
 
-    getApi()
+    getPokeInfoApi()
   }, [name]);
 
   function handleOpenPokeDetailsModal() {
@@ -49,24 +51,24 @@ export function PokeCard({name}: PokemonsProps) {
   function handleClosePokeDetailsModal() {
     setisPokeDetailsModalOpen(false)
   }
+
  
   return (
     <>
-    
       <Container onClick={handleOpenPokeDetailsModal}>
 
-        <div className="cardInfo">
-          <span>#{pokemon.id}</span>
-          <h2>{name}</h2>
-          <p>{pokemon.types}</p>
-        </div>
-
-        <div className="cardImgs">
-          <img className="pokeBg" src={pokeBg} alt="" />
-          <img className="pokeImg" src={pokemon.image} alt="" />
-        </div>
-        
-      </Container>
+          <div className="cardInfo">
+            <span>#{pokemon.id}</span>
+            <h2>{name}</h2>
+            <p>{pokemon.types}</p>
+          </div>
+  
+          <div className="cardImgs">
+            <img className="pokeBg" src={pokeBg} alt="" />
+            <img className="pokeImg" src={pokemon.image} alt="" />
+          </div>
+          
+        </Container>
 
       <PokeDetailsModal 
         name={name} 
@@ -74,7 +76,6 @@ export function PokeCard({name}: PokemonsProps) {
         isOpen={isPokeDetailsModalOpen}
         onRequestClose={handleClosePokeDetailsModal} 
       />
-
     </>
   )
 }

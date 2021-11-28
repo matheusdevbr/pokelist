@@ -6,18 +6,18 @@ import { PokeCard } from '../PokeCard';
 import { Container } from './style';
 interface PokemonsProps {
   name: string;
+  image: string;
 }
 
 export function PokeList() {
   const [pokemons, setPokemons] = useState<PokemonsProps[]>([]);
-
 
   useEffect(() => {
     api.get('pokemon')
     .then(response =>
     setPokemons(response.data.results))
   }, []);
-
+ 
   return (
     <Container>
       {pokemons.map(pokemon => (
@@ -27,8 +27,6 @@ export function PokeList() {
         </>
       ))}
         
-    </Container>
-    
-    
+    </Container>    
   )
 }
