@@ -15,7 +15,7 @@ export const Container = styled.div<DominantColorPokeImgProps>`
   cursor: pointer;
   transition: filter 0.2s;
 
-  background-color: ${props => props.dominantColorPokeImg};
+  background-color: ${props => props.dominantColorPokeImg !== "#2b272c" ? props.dominantColorPokeImg : '#444' };
 
   &:hover {
     filter: brightness(0.9);
