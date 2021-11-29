@@ -1,7 +1,7 @@
 import pokeBg from '../../images/pokeBg.png';
 
-//import { useColor } from 'color-thief-react';
 import { useEffect, useState } from 'react';
+import { useColor } from 'color-thief-react';
 
 import { api } from '../../services/api';
 import { PokeDetailsModal } from '../PokeDetailsModal';
@@ -9,7 +9,7 @@ import { PokeDetailsModal } from '../PokeDetailsModal';
 import { Container } from "./styles"
 
 interface PokemonsProps {
-  name: string;
+  name: string
 }
 
 interface PokemonTypesProps {
@@ -25,8 +25,7 @@ interface PokemonInfoProps {
 export function PokeCard({name}: PokemonsProps) {
   const [pokemon, setPokemon] = useState<PokemonInfoProps>({} as PokemonInfoProps);
   const [isPokeDetailsModalOpen, setisPokeDetailsModalOpen] = useState(false);
-
-
+  
   useEffect(() => {
     async function getPokeInfoApi() {
     await api.get(`pokemon/${name}`)
@@ -52,10 +51,13 @@ export function PokeCard({name}: PokemonsProps) {
     setisPokeDetailsModalOpen(false)
   }
 
- 
+  const { data } = useColor(pokemon.image, 'hex', {crossOrigin: 'CanvasRenderingContext2D'});
+  const dominantColorPokeImg = data;
+  console.log(dominantColorPokeImg)
   return (
     <>
-      <Container onClick={handleOpenPokeDetailsModal}>
+      <Container onClick={handleOpenPokeDetailsModal}
+       >
 
           <div className="cardInfo">
             <span>#{pokemon.id}</span>

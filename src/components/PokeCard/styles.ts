@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
-
+/* interface DominantColorPokeImgProps {
+  dominantColorPokeImg: string;
+} */
 export const Container = styled.div`
   width: 25rem;
   height: 12rem;
@@ -12,7 +14,7 @@ export const Container = styled.div`
   cursor: pointer;
   transition: filter 0.2s;
 
-  
+  /* background-color: ${props => props.dominantColorPokeImg}; */
 
   &:hover {
     filter: brightness(0.9);
