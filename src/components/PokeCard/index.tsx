@@ -56,7 +56,7 @@ export function PokeCard({name}: PokemonsProps) {
   console.log(dominantColorPokeImg)
   return (
     <>
-      <Container onClick={handleOpenPokeDetailsModal}
+      <Container dominantColorPokeImg={dominantColorPokeImg} onClick={handleOpenPokeDetailsModal}
        >
 
           <div className="cardInfo">
