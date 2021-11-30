@@ -6,7 +6,6 @@ import { PokeCard } from '../PokeCard';
 import { Container } from './style';
 interface PokemonsProps {
   name: string;
-  image: string;
 }
 
 export function PokeList() {
@@ -16,14 +15,23 @@ export function PokeList() {
     api.get('pokemon')
     .then(response =>
     setPokemons(response.data.results))
+    getMorePokemons()
   }, []);
  
+  async function getMorePokemons() {
+    await api.get('pokemon?limit=20&offset=20')
+    .then(response => {
+      const { results } = response.data
+    setPokemons( pokemons => [...pokemons, ...results]);
+
+  }
+  )}
+
   return (
     <Container>
       {pokemons.map(pokemon => (
         <>
-          <PokeCard key={pokemon.name} name={pokemon.name}/>
-          
+          <PokeCard key={pokemon.name} name={pokemon.name}/>       
         </>
       ))}
         

@@ -53,30 +53,32 @@ export function PokeCard({name}: PokemonsProps) {
 
   const { data } = useColor(pokemon.image, 'hex', {crossOrigin: 'CanvasRenderingContext2D'});
   const dominantColorPokeImg = data;
-  console.log(dominantColorPokeImg)
+  
   return (
     <>
-      <Container dominantColorPokeImg={dominantColorPokeImg} onClick={handleOpenPokeDetailsModal}
-       >
+      <Container
+        onClick={handleOpenPokeDetailsModal}
+        dominantColorPokeImg={dominantColorPokeImg}
+      >
 
-          <div className="cardInfo">
-            <span>#{pokemon.id}</span>
-            <h2>{name}</h2>
-            <p>{pokemon.types}</p>
-          </div>
-  
-          <div className="cardImgs">
-            <img className="pokeBg" src={pokeBg} alt="" />
-            <img className="pokeImg" src={pokemon.image} alt="" />
-          </div>
-          
-        </Container>
+        <div className="cardInfo">
+          <span>#{pokemon.id}</span>
+          <h2>{name}</h2>
+          <p>{pokemon.types}</p>
+        </div>
 
-      <PokeDetailsModal 
-        name={name} 
+        <div className="cardImgs">
+          <img className="pokeBg" src={pokeBg} alt="" />
+          <img className="pokeImg" src={pokemon.image} alt="" />
+        </div>
+
+      </Container>
+
+      <PokeDetailsModal
+        name={name}
         pokeImg={pokemon.image}
         isOpen={isPokeDetailsModalOpen}
-        onRequestClose={handleClosePokeDetailsModal} 
+        onRequestClose={handleClosePokeDetailsModal}
       />
     </>
   )

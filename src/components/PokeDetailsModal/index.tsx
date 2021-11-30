@@ -1,7 +1,8 @@
-//import { useState } from 'react';
 import { useEffect, useState } from 'react';
 import Modal from 'react-modal'
+
 import { api } from '../../services/api';
+
 import { Stats, StatsBarAttack, StatsBarDefense, StatsBarHp, StatsBarSpecialAttack, StatsBarSpecielDefense, StatsBarSpeed } from './style'
 
 interface PokeDetailsModalProps {
@@ -35,13 +36,8 @@ export function PokeDetailsModal({name, pokeImg, isOpen, onRequestClose}: PokeDe
             specialAttack: stats[3].base_stat,
             specialDefense: stats[4].base_stat,
             speed: stats[5].base_stat,
-          
         })
-
       }
-
-    
-
     )}
 
     getApi()
@@ -58,9 +54,11 @@ export function PokeDetailsModal({name, pokeImg, isOpen, onRequestClose}: PokeDe
         <h2>{name}</h2>
         <img src={pokeImg} alt="Imagem do pokemon" />
       </div>
+
       <Stats>
-      <h2>Stats</h2>
-      <strong>HP</strong>
+        <h2>Stats</h2>
+        
+        <strong>HP</strong>
         <StatsBarHp statsPercentage={stats.hp}></StatsBarHp>
         <p>{stats.hp}</p>
 

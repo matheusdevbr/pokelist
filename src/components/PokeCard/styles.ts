@@ -15,15 +15,22 @@ export const Container = styled.div<DominantColorPokeImgProps>`
   cursor: pointer;
   transition: filter 0.2s;
 
-  background-color: ${props => props.dominantColorPokeImg !== "#2b272c" ? props.dominantColorPokeImg : '#444' };
+  background-color: ${props => props.dominantColorPokeImg !== "#2b272c" ? props.dominantColorPokeImg : '#777' };
 
   &:hover {
     filter: brightness(0.9);
   }
+
+  p {
+    max-width: 9rem;
+    text-align: center;
+    border: 1px solid ;
+    border-radius: 40px;
+  }
   
   h2 {
     min-width: 12.5rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2.7rem;
   }
 
   .cardImgs {
