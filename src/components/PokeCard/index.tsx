@@ -13,7 +13,9 @@ interface PokemonsProps {
 }
 
 interface PokemonTypesProps {
-  name: string;
+  type: {
+    name: string;
+  }
 }
 
 interface PokemonInfoProps {
@@ -34,7 +36,7 @@ export function PokeCard({name}: PokemonsProps) {
         setPokemon({
           id,
           image: sprites.other['official-artwork'].front_default,
-          types: types.map((type: { type: any; }) => type.type.name).join(" - "),
+          types: types.map((type: PokemonTypesProps) => type.type.name).join(' - '),
           
         })
       }
@@ -64,7 +66,7 @@ export function PokeCard({name}: PokemonsProps) {
         <div className="cardInfo">
           <span>#{pokemon.id}</span>
           <h2>{name}</h2>
-          <p>{pokemon.types}</p>
+            <p>{pokemon.types}</p>
         </div>
 
         <div className="cardImgs">
