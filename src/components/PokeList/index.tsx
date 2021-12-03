@@ -19,15 +19,15 @@ export function PokeList() {
   return (
     <Container>
       {pokemons.map(pokemon => (
-          <PokeCard 
-            key={pokemon.name}
-            id={pokemon.id} 
-            name={pokemon.name}
-            image={pokemon.image}
-            types={pokemon.types}
-            baseStat={pokemon.baseStat}
-            nameStat={pokemon.nameStat}
-          />       
+        <PokeCard 
+          key={pokemon.name}
+          id={pokemon.id} 
+          name={pokemon.name}
+          image={pokemon.image}
+          types={pokemon.types}
+          baseStat={pokemon.baseStat}
+          nameStat={pokemon.nameStat}
+        />       
       ))}
         
     </Container>    

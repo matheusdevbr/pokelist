@@ -70,7 +70,27 @@ export const GlobalStyles = createGlobalStyle`
     border-radius: 0.5rem;
 
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 2fr;
+
+    h2 {
+      margin-left:-10px;
+      font-size: 2.3rem;
+    }
+
+    h4 {
+      width: 5rem;
+      text-align: center;
+      border: 1px solid;
+      border-radius: 0.5rem;
+
+      & + h4 {
+        margin-top: 10px;
+      }
+    }
+
+    img {
+      max-width: 25rem;
+    }
   }
 
 `

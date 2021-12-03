@@ -26,6 +26,10 @@ export const Container = styled.div<DominantColorPokeImgProps>`
     text-align: center;
     border: 1px solid ;
     border-radius: 40px;
+
+    & + p {
+      margin-top: 10px;
+    }
   }
   
   h2 {

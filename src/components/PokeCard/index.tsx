@@ -11,15 +11,18 @@ interface PokemonProps {
   name: string;
   id: number;
   image: string;
-  types: [];
-  baseStat: [];
-  nameStat: [];
+  types: string[];
+  nameStat: string[];
+  baseStat: number[];
 }
 
 
 
-export function PokeCard({name, id, image, types}: PokemonProps) {
+export function PokeCard({name, id, image, types, nameStat, baseStat}: PokemonProps) {
   const [isPokeDetailsModalOpen, setisPokeDetailsModalOpen] = useState(false);
+  const { data } = useColor(image, 'hex', {crossOrigin: 'CanvasRenderingContext2D'});
+  const dominantColorPokeImg = data;
+  
 
   function handleOpenPokeDetailsModal() {
     setisPokeDetailsModalOpen(true)
@@ -29,9 +32,6 @@ export function PokeCard({name, id, image, types}: PokemonProps) {
     setisPokeDetailsModalOpen(false)
   }
 
-  const { data } = useColor(image, 'hex', {crossOrigin: 'CanvasRenderingContext2D'});
-  const dominantColorPokeImg = data;
-  
   return (
     <>
       <Container
@@ -54,7 +54,10 @@ export function PokeCard({name, id, image, types}: PokemonProps) {
 
       <PokeDetailsModal
         name={name}
-        pokeImg={image}
+        image={image}
+        types={types}
+        nameStat={nameStat}
+        baseStat={baseStat}
         isOpen={isPokeDetailsModalOpen}
         onRequestClose={handleClosePokeDetailsModal}
       />

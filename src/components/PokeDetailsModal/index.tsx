@@ -1,48 +1,18 @@
-import { useEffect, useState } from 'react';
 import Modal from 'react-modal'
 
-import { api } from '../../services/api';
-
-import { Stats, StatsBarAttack, StatsBarDefense, StatsBarHp, StatsBarSpecialAttack, StatsBarSpecielDefense, StatsBarSpeed } from './style'
+import { Stats, StatsBar} from './style'
 
 interface PokeDetailsModalProps {
   name: string;
-  pokeImg: string;
+  image: string;
+  types: string[];
+  nameStat: string[];
+  baseStat: number[];
   isOpen: boolean;
   onRequestClose: () => void;
 }
 
-interface StatsProps {
-    hp: number;
-    attack: number;
-    defense: number;
-    specialAttack: number;
-    specialDefense: number;
-    speed: number;
-}
-
-export function PokeDetailsModal({name, pokeImg, isOpen, onRequestClose}: PokeDetailsModalProps) {
-  const [stats, setStats] = useState<StatsProps>({} as StatsProps);
-
-  useEffect(() => {
-    async function getApi() {
-    await api.get(`pokemon/${name}`)
-      .then(response => {
-        const { stats } = response.data;
-        setStats({
-            hp: stats[0].base_stat,
-            attack: stats[1].base_stat,
-            defense: stats[2].base_stat,
-            specialAttack: stats[3].base_stat,
-            specialDefense: stats[4].base_stat,
-            speed: stats[5].base_stat,
-        })
-      }
-    )}
-
-    getApi()
-  }, [name]);
-  
+export function PokeDetailsModal({name, image, types, nameStat, baseStat, isOpen, onRequestClose}: PokeDetailsModalProps) {
   return (
     <Modal   
       isOpen={isOpen}
@@ -52,35 +22,37 @@ export function PokeDetailsModal({name, pokeImg, isOpen, onRequestClose}: PokeDe
     >
       <div>
         <h2>{name}</h2>
-        <img src={pokeImg} alt="Imagem do pokemon" />
+        {types.map(type => (<h4>{type}</h4>))}
+        <img src={image} alt="Imagem do pokemon" />
       </div>
 
       <Stats>
-        <h2>Stats</h2>
+        <h3>Stats</h3>
         
-        <strong>HP</strong>
-        <StatsBarHp statsPercentage={stats.hp}></StatsBarHp>
-        <p>{stats.hp}</p>
+        <strong>{nameStat[0]}</strong>
+        <StatsBar statsPercentage={baseStat[0]}/>
+        <p>{baseStat[0]}</p>
 
-        <strong>Attack</strong>
-        <StatsBarAttack statsPercentage={stats.attack}></StatsBarAttack>
-        <p>{stats.attack}</p>
+        <strong>{nameStat[1]}</strong>
+        <StatsBar statsPercentage={baseStat[1]}/>
+        <p>{baseStat[1]}</p>
 
-        <strong>Defense</strong>
-        <StatsBarDefense statsPercentage={stats.defense}></StatsBarDefense>
-        <p>{stats.defense}</p>
+        <strong>{nameStat[2]}</strong>
+        <StatsBar statsPercentage={baseStat[2]}/>
+        <p>{baseStat[2]}</p>
 
-        <strong>Special Attack</strong>
-        <StatsBarSpecialAttack statsPercentage={stats.specialAttack}></StatsBarSpecialAttack>
-        <p>{stats.specialAttack}</p>
+        <strong>{nameStat[3]}</strong>
+        <StatsBar statsPercentage={baseStat[3]}/>
+        <p>{baseStat[3]}</p>
 
-        <strong>Special Defense</strong>
-        <StatsBarSpecielDefense statsPercentage={stats.specialDefense}></StatsBarSpecielDefense>
-        <p>{stats.specialDefense}</p>
+        <strong>{nameStat[4]}</strong>
+        <StatsBar statsPercentage={baseStat[4]}/>
+        <p>{baseStat[4]}</p>
 
-        <strong>Speed</strong>
-        <StatsBarSpeed statsPercentage={stats.speed}></StatsBarSpeed>
-        <p>{stats.speed}</p>
+        <strong>{nameStat[5]}</strong>
+        <StatsBar statsPercentage={baseStat[5]}/>
+        <p>{baseStat[5]}</p>
+
       </Stats>
     </Modal>
   )

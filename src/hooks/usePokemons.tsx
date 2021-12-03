@@ -13,8 +13,8 @@ interface Pokemon {
   id: number;
   image: string;
   types: [];
-  baseStat: [];
   nameStat: [];
+  baseStat: [];
 }
 
 interface PokemonTypes {
@@ -58,7 +58,7 @@ export function PokemonsProvider({children}: PokemonsProviderProps) {
         types: types.map((type: PokemonTypes) => type.type.name),
         baseStat: stats.map((stat: PokemonBaseStat) => stat.base_stat),
         nameStat: stats.map((stat: PokemonNameStat) => stat.stat.name),
-      }
+      } 
 
       pokemonList.push(pokemonInfo);      
     }
