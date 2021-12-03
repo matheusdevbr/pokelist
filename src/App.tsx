@@ -1,5 +1,5 @@
 import { PokeList } from "./components/PokeList";
-import { PokemonsProvider } from "./PokemonsContext";
+import { PokemonsProvider } from "./hooks/usePokemons";
 import { GlobalStyles } from "./styles/global";
 
 

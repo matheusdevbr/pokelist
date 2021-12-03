@@ -1,49 +1,25 @@
-import pokeBg from '../../images/pokeBg.png';
-
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useColor } from 'color-thief-react';
 
-import { api } from '../../services/api';
 import { PokeDetailsModal } from '../PokeDetailsModal';
+
+import pokeBg from '../../images/pokeBg.png';
 
 import { Container } from "./styles"
 
-interface PokemonsProps {
-  name: string
-}
-
-interface PokemonTypesProps {
-  type: {
-    name: string;
-  }
-}
-
-interface PokemonInfoProps {
+interface PokemonProps {
+  name: string;
   id: number;
   image: string;
-  types: PokemonTypesProps[];
+  types: [];
+  baseStat: [];
+  nameStat: [];
 }
 
-export function PokeCard({name}: PokemonsProps) {
-  const [pokemon, setPokemon] = useState<PokemonInfoProps>({} as PokemonInfoProps);
-  const [isPokeDetailsModalOpen, setisPokeDetailsModalOpen] = useState(false);
-  
-  useEffect(() => {
-    async function getPokeInfoApi() {
-    await api.get(`pokemon/${name}`)
-      .then(response => {
-        const { id, types, sprites } = response.data;
-        setPokemon({
-          id,
-          image: sprites.other['official-artwork'].front_default,
-          types: types.map((type: PokemonTypesProps) => type.type.name).join(' - '),
-          
-        })
-      }
-    )}
 
-    getPokeInfoApi()
-  }, [name]);
+
+export function PokeCard({name, id, image, types}: PokemonProps) {
+  const [isPokeDetailsModalOpen, setisPokeDetailsModalOpen] = useState(false);
 
   function handleOpenPokeDetailsModal() {
     setisPokeDetailsModalOpen(true)
@@ -53,7 +29,7 @@ export function PokeCard({name}: PokemonsProps) {
     setisPokeDetailsModalOpen(false)
   }
 
-  const { data } = useColor(pokemon.image, 'hex', {crossOrigin: 'CanvasRenderingContext2D'});
+  const { data } = useColor(image, 'hex', {crossOrigin: 'CanvasRenderingContext2D'});
   const dominantColorPokeImg = data;
   
   return (
@@ -64,21 +40,21 @@ export function PokeCard({name}: PokemonsProps) {
       >
 
         <div className="cardInfo">
-          <span>#{pokemon.id}</span>
+          <span>#{id}</span>
           <h2>{name}</h2>
-            <p>{pokemon.types}</p>
+          {types.map(type => (<p>{type}</p>)) }
         </div>
 
         <div className="cardImgs">
-          <img className="pokeBg" src={pokeBg} alt="" />
-          <img className="pokeImg" src={pokemon.image} alt="" />
+          <img className="pokeBg" src={pokeBg} alt="Imagem da pokeball de background" />
+          <img className="pokeImg" src={image} alt="Imagem do pokemon" />
         </div>
 
       </Container>
 
       <PokeDetailsModal
         name={name}
-        pokeImg={pokemon.image}
+        pokeImg={image}
         isOpen={isPokeDetailsModalOpen}
         onRequestClose={handleClosePokeDetailsModal}
       />
