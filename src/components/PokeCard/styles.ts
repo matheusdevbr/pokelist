@@ -1,13 +1,13 @@
 import styled from "styled-components";
+import media from 'styled-media-query';
 
 interface DominantColorPokeImgProps {
   dominantColorPokeImg: string | any;
 }
 
 export const Container = styled.div<DominantColorPokeImgProps>`
-  width: 25rem;
-  height: 12rem;
-  padding: 1rem;
+  width: inherit;
+  padding: 1.5rem;
   border-radius: 20px;
   display: flex;
   justify-content: space-between;
@@ -17,12 +17,14 @@ export const Container = styled.div<DominantColorPokeImgProps>`
 
   background-color: ${props => props.dominantColorPokeImg !== "#2b272c" ? props.dominantColorPokeImg : '#777' };
 
+  
+
   &:hover {
     filter: brightness(0.9);
   }
 
   p {
-    max-width: 9rem;
+    max-width: 5rem;
     text-align: center;
     border: 1px solid ;
     border-radius: 40px;
@@ -33,25 +35,29 @@ export const Container = styled.div<DominantColorPokeImgProps>`
   }
   
   h2 {
+    text-transform: capitalize;
     min-width: 12.5rem;
-    margin-bottom: 2.7rem;
+    margin-bottom: 1rem;
   }
 
-  .cardImgs {
-    padding-left: 1rem;
-  }
-
+ 
   .pokeBg {
     width: 150px;
     height: 150px;
-    margin-bottom: -2.3rem;
+    margin-right: -9rem;
+
+    ${media.lessThan('large')`
+      margin-right: -9.7rem;
+    `}
+
+    ${media.lessThan('small')`
+      margin-bottom: -2rem;
+    `}
   }
 
   .pokeImg {  
     width: 140px;
     height: 140px;
     margin-top: -10rem;
-    margin-left: 0.4rem;
   }
-
 `

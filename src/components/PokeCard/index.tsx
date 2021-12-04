@@ -42,12 +42,12 @@ export function PokeCard({name, id, image, types, nameStat, baseStat}: PokemonPr
         <div className="cardInfo">
           <span>#{id}</span>
           <h2>{name}</h2>
-          {types.map(type => (<p>{type}</p>)) }
+          {types.map(type => (<p key={name}>{type}</p>)) }
         </div>
 
         <div className="cardImgs">
           <img className="pokeBg" src={pokeBg} alt="Imagem da pokeball de background" />
-          <img className="pokeImg" src={image} alt="Imagem do pokemon" />
+          <img className="pokeImg" src={image} alt={`Imagem do pokemon ${name}`} />
         </div>
 
       </Container>

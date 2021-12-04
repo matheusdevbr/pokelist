@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import media from 'styled-media-query';
 
 export const GlobalStyles = createGlobalStyle`
   :root {
@@ -32,10 +33,6 @@ export const GlobalStyles = createGlobalStyle`
 
   button {
     cursor: pointer;
-  }
-
-  h2 {
-    text-transform: capitalize;
   }
 
   [disabled] {
@@ -72,16 +69,21 @@ export const GlobalStyles = createGlobalStyle`
     display: grid;
     grid-template-columns: 1fr 2fr;
 
+  
     h2 {
-      margin-left:-10px;
+      text-transform: capitalize;
+      margin-left:-5px;
+      margin-right: 10px;
+      margin-bottom: 5px;
       font-size: 2.3rem;
     }
 
     h4 {
-      width: 5rem;
+      font-weight: 400;
       text-align: center;
+      width: 5rem;
       border: 1px solid;
-      border-radius: 0.5rem;
+      border-radius: 40px;
 
       & + h4 {
         margin-top: 10px;
@@ -90,6 +92,11 @@ export const GlobalStyles = createGlobalStyle`
 
     img {
       max-width: 25rem;
+
+      ${media.lessThan('medium')`
+        width: 100%;
+    
+      `};
     }
   }
 
