@@ -14,10 +14,9 @@ export const Container = styled.div`
   `};
  
   ${media.lessThan('large')`
-  grid-template-columns: 1fr;
-  padding: 3rem;
+    grid-template-columns: 1fr;
+    padding: 0.5rem;
   `}
-  ${media.lessThan('large')`
-  padding: 5px;
-  `}
+ 
+  
 `

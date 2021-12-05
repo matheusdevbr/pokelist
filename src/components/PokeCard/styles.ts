@@ -39,7 +39,6 @@ export const Container = styled.div<DominantColorPokeImgProps>`
     min-width: 12.5rem;
     margin-bottom: 1rem;
   }
-
  
   .pokeBg {
     width: 150px;
@@ -47,7 +46,7 @@ export const Container = styled.div<DominantColorPokeImgProps>`
     margin-right: -9rem;
 
     ${media.lessThan('large')`
-      margin-right: -9.7rem;
+      margin-right: -9rem;
     `}
 
     ${media.lessThan('small')`
@@ -59,5 +58,14 @@ export const Container = styled.div<DominantColorPokeImgProps>`
     width: 140px;
     height: 140px;
     margin-top: -10rem;
+
+    ${media.lessThan('large')`
+      margin-left: -1rem;
+      
+    `}
+
+    ${media.lessThan('small')`
+      margin-left: 0.5rem;
+    `}
   }
 `

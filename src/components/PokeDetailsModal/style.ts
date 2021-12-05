@@ -11,7 +11,8 @@ export const Stats = styled.div`
 
   ${media.lessThan('small')`
       margin-top: -1.5rem;
-    `}
+  `}
+
   strong {
     display: inline-block;
     margin: 10px 0;
