@@ -4,7 +4,7 @@ import { api } from '../services/api';
 interface PokemonContextData {
   pokemons: Pokemon[];
   getPokemonsList: () => void;
-  SearchPokemon: (inputData: string) => Promise<void>;
+  SearchPokemon: (inputData: string) => void;
 }
 interface PokemonsProviderProps {
   children: ReactNode
@@ -75,7 +75,9 @@ export function PokemonsProvider({children}: PokemonsProviderProps) {
       setPokemons(initialPokemons);
       return;
     }
-    const filterPoke = pokemons.filter(({ name }) => name.includes(inputData))
+
+    const filterPoke = pokemons.filter(({ name }) => name.includes(inputData));
+
     setPokemons(filterPoke);
   }
   
