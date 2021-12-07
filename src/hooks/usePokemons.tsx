@@ -71,7 +71,7 @@ export function PokemonsProvider({children}: PokemonsProviderProps) {
 
   async function SearchPokemon(inputData: string){
     /* console.log(inputData); */
-    if (inputData === "") {
+    if (!inputData) {
       setPokemons(initialPokemons);
       return;
     }
