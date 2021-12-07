@@ -37,6 +37,7 @@ interface PokemonNameStat {
 const PokemonsContext = createContext<PokemonContextData>({} as PokemonContextData);
 
 export function PokemonsProvider({children}: PokemonsProviderProps) {
+  const [initialPokemons, setInitialPokemons] = useState<Pokemon[]>([]);
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
   
 
@@ -63,12 +64,17 @@ export function PokemonsProvider({children}: PokemonsProviderProps) {
 
       pokemonList.push(pokemonInfo);      
     }
-
+    setInitialPokemons(pokemonList);
     setPokemons(pokemonList);
 
   }
 
-  async function SearchPokemon(inputData: string) {
+  async function SearchPokemon(inputData: string){
+    /* console.log(inputData); */
+    if (inputData === "") {
+      setPokemons(initialPokemons);
+      return;
+    }
     const filterPoke = pokemons.filter(({ name }) => name.includes(inputData))
     setPokemons(filterPoke);
   }

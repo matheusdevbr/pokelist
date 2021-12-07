@@ -1,6 +1,8 @@
 import { FormEvent, useState } from "react";
 import { usePokemon } from "../../hooks/usePokemons";
 
+import lupa from "../../images/lupa.png";
+
 export function SearchInput() {
   const [inputData, setInputData] = useState('');
 
@@ -14,16 +16,15 @@ export function SearchInput() {
 
   return(
     <form onSubmit={handleSubmit} >
-                <label htmlFor="searchPoke">
-                    <input 
-                        id="searchPoke" 
-                        type="text" 
-                        placeholder="Digite o nome de um pókemon"
-                        value={inputData}
-                        onChange={(e) => setInputData(e.target.value)}
-                    />
-                   <img src="" alt="Procure um pokémon" />
-                </label>
-            </form>
+      <label htmlFor="searchPokemon">
+        <input
+          type="text"
+          placeholder="Digite o nome de um pókemon"
+          value={inputData}
+          onChange={(e) => setInputData(e.target.value)}
+        />
+        <img src={lupa} alt="Lupa" />
+      </label>
+    </form>
   )
 }
