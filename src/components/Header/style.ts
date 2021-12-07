@@ -6,7 +6,7 @@ export const Container = styled.header`
   text-align: center;
   .headerImg {
 
-    width: 99vw;
+    width: 98.9vw;
   }
 
   .pokeballImg {

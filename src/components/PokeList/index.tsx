@@ -5,6 +5,7 @@ import { PokeCard } from '../PokeCard';
 import { LogoTitle } from '../LogoTitle';
 
 import { Container } from './style';
+import { SearchInput } from '../SearchInput';
 
 
 export function PokeList() {
@@ -20,6 +21,7 @@ export function PokeList() {
   return (
     <>
     <LogoTitle />
+    <SearchInput />
     <Container>
       {pokemons.map(pokemon => (
         <PokeCard 
