@@ -42,7 +42,7 @@ export function PokemonsProvider({children}: PokemonsProviderProps) {
   
 
   async function getPokemonsList() {
-    const response = await api.get('pokemon?offset=0&limit=5');
+    const response = await api.get('pokemon?offset=0&limit=200');
 
     const { results } = response.data;
 

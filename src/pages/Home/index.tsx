@@ -1,20 +1,20 @@
 import { useEffect } from 'react';
 import { usePokemon } from '../../hooks/usePokemons';
 
-import { PokeCard } from '../PokeCard';
-import { LogoTitle } from '../LogoTitle';
+import { PokeCard } from '../../components/PokeCard';
+import { LogoTitle } from '../../components/LogoTitle';
 
 import { Container } from './style';
-import { SearchInput } from '../SearchInput';
+import { SearchInput } from '../../components/SearchInput';
 
 
-export function PokeList() {
+export function Home() {
 
   const { getPokemonsList, pokemons } = usePokemon();
 
   useEffect(() => {
     getPokemonsList()
-  }, []);
+  });
 
   
 
