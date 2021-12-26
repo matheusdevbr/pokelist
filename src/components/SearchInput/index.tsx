@@ -3,6 +3,8 @@ import { usePokemon } from "../../hooks/usePokemons";
 
 import lupa from "../../images/lupa.png";
 
+import { Container } from "./style";
+
 export function SearchInput() {
   const { SearchPokemon } = usePokemon();
 
@@ -13,13 +15,13 @@ export function SearchInput() {
 
   return(
     
-      <div>
+      <Container>
         <input
           type="text"
           placeholder="Digite o nome de um pókemon" 
           onChange={handleSubmit}
         />
         <img src={lupa} alt="Lupa" />
-      </div>
+      </Container>
   )
 }
