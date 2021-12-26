@@ -75,9 +75,9 @@ export function PokemonsProvider({children}: PokemonsProviderProps) {
       return;
     }
 
-    const filterPoke = pokemons.filter(({ name }) => name.includes(inputData));
-
-    setPokemons(filterPoke);
+    const PokemonFiltered = pokemons.filter(({ name }) => name.includes(inputData));
+    
+    setPokemons(PokemonFiltered);
   }
   
   return(

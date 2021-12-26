@@ -9,11 +9,12 @@ export function SearchInput() {
   const { SearchPokemon } = usePokemon();
 
   function handleSubmit({target}: ChangeEvent<HTMLInputElement>) {
-    var targetValue = target.value;
-    SearchPokemon(targetValue);
+    if (target.value.length > 2 || !target.value) {
+      SearchPokemon(target.value);
+    }
   }
 
-  return(
+  return (
     
       <Container>
         <input
