@@ -19,6 +19,7 @@ export function PokeDetailsModal({name, image, types, nameStat, baseStat, isOpen
       onRequestClose={onRequestClose}
       overlayClassName="react-modal-overlay"
       className="react-modal-content"
+      ariaHideApp={false}
     >
       <div>
         <h2>{name}</h2>
