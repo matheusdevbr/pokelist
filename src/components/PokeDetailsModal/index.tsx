@@ -22,7 +22,7 @@ export function PokeDetailsModal({name, image, types, nameStat, baseStat, isOpen
     >
       <div>
         <h2>{name}</h2>
-        {types.map(type => (<h4 key={name}>{type}</h4>))}
+        {types.map(type => (<h4 key={type}>{type}</h4>))}
         <img src={image} alt="Imagem do pokemon" />
       </div>
 
