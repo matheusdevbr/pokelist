@@ -6,6 +6,7 @@ import { LogoTitle } from '../../components/LogoTitle';
 
 import { Container } from './style';
 import { SearchInput } from '../../components/SearchInput';
+import { Header } from '../../components/Header';
 
 
 export function Home() {
@@ -20,6 +21,7 @@ export function Home() {
 
   return (
     <>
+    <Header />
     <LogoTitle />
     <SearchInput />
     <Container>
@@ -33,8 +35,7 @@ export function Home() {
           baseStat={pokemon.baseStat}
           nameStat={pokemon.nameStat}
         />       
-      ))}
-        
+      ))}        
     </Container>  
     </>  
   )
