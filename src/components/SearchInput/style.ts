@@ -10,15 +10,17 @@ export const Container = styled.div`
     max-width: 720px;
     height: 100%;
 
+    text-align: center;
+
     padding: 0 0.5rem;
   
     font-size: 1.22rem;
 
-    border-radius: 4px;
+    border-radius: 8px;
   }
 
   img {
-    margin-left: -1.6rem;
-    margin-bottom: -4px;
+    margin-left: -1.8rem;
+    margin-bottom: -5px;
   }
 `

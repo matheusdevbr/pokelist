@@ -18,7 +18,7 @@ export function SearchInput() {
       <Container>
         <input
           type="text"
-          placeholder="Digite o nome de um pókemon" 
+          placeholder="Search a pokémon" 
           onChange={handleSubmit}
         />
         <img src={lupa} alt="Lupa" />
