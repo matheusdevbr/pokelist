@@ -6,11 +6,11 @@ import lupa from "../../images/lupa.png";
 import { Container } from "./style";
 
 export function SearchInput() {
-  const { SearchPokemon } = usePokemon();
+  const { searchPokemon } = usePokemon();
 
-  function handleSubmit({target}: ChangeEvent<HTMLInputElement>) {
+  const handleSubmit = ({target}: ChangeEvent<HTMLInputElement>) => {
     if (target.value.length > 2 || !target.value) {
-      SearchPokemon(target.value);
+     searchPokemon(target.value);
     }
   }
 
@@ -19,7 +19,7 @@ export function SearchInput() {
       <Container>
         <input
           type="text"
-          placeholder="Search a pokémon" 
+          placeholder="Search a pokémon"
           onChange={handleSubmit}
         />
         <img src={lupa} alt="Lupa" />
