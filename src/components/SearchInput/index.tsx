@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react";
+import { ChangeEvent } from "react";
 import { usePokemon } from "../../hooks/usePokemons";
 
 import lupa from "../../images/lupa.png";
@@ -7,25 +7,23 @@ import { Container } from "./style";
 
 export function SearchInput() {
   const { searchPokemon } = usePokemon();
-  const [inputData, setInputData] = useState('');
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    searchPokemon(inputData);
+
+  function handleSubmit({target}: ChangeEvent<HTMLInputElement>) {
     
+    if (target.value.length > 1 || !target.value) {
+     searchPokemon(target.value);
+    }
   }
 
   return (
     
       <Container>
-        <form onSubmit={handleSubmit}>
         <input
           type="text"
           placeholder="Search a pokémon"
-          value={inputData}
-          onChange={(e) => setInputData(e.target.value)}
+          onChange={handleSubmit}
         />
         <img src={lupa} alt="Lupa" />
-        </form>
       </Container>
   )
 }
