@@ -11,7 +11,7 @@ export const Stats = styled.div`
 
   ${media.lessThan('small')`
       margin-top: -1.5rem;
-      max-height: 38.7rem;
+      max-height: 39rem;
   `}
 
   strong {
