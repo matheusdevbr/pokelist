@@ -15,6 +15,7 @@ export function Home() {
 
   useEffect(() => {
     getPokemonsList()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   
