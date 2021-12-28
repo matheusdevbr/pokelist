@@ -1,4 +1,4 @@
-import { ChangeEvent } from "react";
+import { ChangeEvent, useState } from "react";
 import { usePokemon } from "../../hooks/usePokemons";
 
 import lupa from "../../images/lupa.png";
@@ -6,6 +6,8 @@ import lupa from "../../images/lupa.png";
 import { Container } from "./style";
 
 export function SearchInput() {
+  const [isFocused, setIsFocused] = useState(false);
+
   const { searchPokemon } = usePokemon();
 
   function handleSubmit({target}: ChangeEvent<HTMLInputElement>) {
@@ -20,8 +22,10 @@ export function SearchInput() {
       <Container>
         <input
           type="text"
-          placeholder="Search a pokémon"
+          placeholder={isFocused ? '' : "Search a pokémon"}
           onChange={handleSubmit}
+          onFocus={function handleInputFocus(){setIsFocused(true)}}
+          onBlur={function handleInputBlur(){setIsFocused(false)}}
         />
         <img src={lupa} alt="Lupa" />
       </Container>
