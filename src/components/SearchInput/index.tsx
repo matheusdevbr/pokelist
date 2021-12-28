@@ -11,23 +11,21 @@ export function SearchInput() {
   const { searchPokemon } = usePokemon();
 
   function handleSubmit({target}: ChangeEvent<HTMLInputElement>) {
-    
     if (target.value.length > 1 || !target.value) {
-     searchPokemon(target.value);
+     searchPokemon(target.value.toLocaleLowerCase());
     }
   }
 
   return (
-    
-      <Container>
-        <input
-          type="text"
-          placeholder={isFocused ? '' : "Search a pokémon"}
-          onChange={handleSubmit}
-          onFocus={function handleInputFocus(){setIsFocused(true)}}
-          onBlur={function handleInputBlur(){setIsFocused(false)}}
-        />
-        <img src={lupa} alt="Lupa" />
-      </Container>
+    <Container>
+      <input
+        type="text"
+        placeholder={isFocused ? '' : "Search a pokémon"}
+        onChange={handleSubmit}
+        onFocus={function handleInputFocus() { setIsFocused(true) }}
+        onBlur={function handleInputBlur() { setIsFocused(false) }}
+      />
+      <img src={lupa} alt="Lupa" />
+    </Container>
   )
 }
