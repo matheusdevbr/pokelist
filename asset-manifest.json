@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/pokelist/static/js/main.d2cd610a.chunk.js",
-    "main.js.map": "/pokelist/static/js/main.d2cd610a.chunk.js.map",
+    "main.js": "/pokelist/static/js/main.a8af8a49.chunk.js",
+    "main.js.map": "/pokelist/static/js/main.a8af8a49.chunk.js.map",
     "runtime-main.js": "/pokelist/static/js/runtime-main.91807906.js",
     "runtime-main.js.map": "/pokelist/static/js/runtime-main.91807906.js.map",
     "static/js/2.bdc7dc51.chunk.js": "/pokelist/static/js/2.bdc7dc51.chunk.js",
@@ -15,6 +15,6 @@
   "entrypoints": [
     "static/js/runtime-main.91807906.js",
     "static/js/2.bdc7dc51.chunk.js",
-    "static/js/main.d2cd610a.chunk.js"
+    "static/js/main.a8af8a49.chunk.js"
   ]
 }
