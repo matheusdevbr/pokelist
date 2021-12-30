@@ -10,6 +10,7 @@ export const Stats = styled.div`
   text-transform: capitalize;
 
   ${media.lessThan('small')`
+      line-height: 1.5rem;
       margin-top: -1.5rem;
       max-height: 39rem;
   `}
