@@ -11,6 +11,7 @@ export const Stats = styled.div`
 
   ${media.lessThan('small')`
       line-height: 1.5rem;
+      
       margin-top: -1.5rem;
       max-height: 39rem;
   `}

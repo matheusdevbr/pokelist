@@ -58,7 +58,7 @@ export const GlobalStyles = createGlobalStyle`
     width: 100%;
     height: 100%;
     max-width: 60rem;
-    max-height: 40rem;
+    max-height: 41rem;
 
     background: #a9a9a9;
 
